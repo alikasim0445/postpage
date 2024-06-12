@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/index.css */
+/* src/index.css */
+body.light {
+    
+    --text-color: black;
+  }
+  
+  body.dark {
+    --bg-color: #333;
+    --text-color: white;
+  }
+
+  .post-page.light {
+    --text-color: black
+  }
+  
+  body {
+
+    color: var(--text-color);
+  }
+  
+  

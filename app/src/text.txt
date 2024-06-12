@@ -1,0 +1,107 @@
+${
+              theme === "dark"
+                ? "bg-gray-900 text-white"
+                : "bg-white text-gray-800"
+            }
+
+
+
+
+
+            import { useContext } from "react";
+import { Link } from "react-router-dom";
+
+import PropTypes from "prop-types";
+import ThemeToggleButton from "./component/ThemeToggleButton";
+import { LanguageContext } from "./context/LanguageContext";
+import { AuthContext } from "./context/AuthContext";
+
+const Nav = () => {
+  const { toggleLanguage } = useContext(LanguageContext);
+  const { language, translations } = useContext(LanguageContext);
+  const { logout } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+
+  const handleClick = () => {
+    logout();
+  };
+  return (
+    <div className="bg-sky-950 py-2">
+      <div className="container">
+        <div className="flex">
+          <Link to="/">
+            <h1 className="text-white font-mono font-extrabold text-2xl hover:text-slate-300 transition duration-300">
+              {translations[language].arada}
+            </h1>
+          </Link>
+          <button>
+            <ThemeToggleButton className="ml-0" />
+          </button>
+        </div>
+        <nav className="">
+          <ul className="flex justify-between gap-3">
+            <li>
+              <Link
+                to="/"
+                className="hover:bg-green-500 hover:border-none active:bg-green-400 px-2 py-1 rounded transition duration-300 border"
+              >
+                {translations[language].home}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:bg-green-500 hover:border-none active:bg-green-400 px-2 py-1 rounded transition duration-300 border"
+              >
+                {translations[language].about}
+              </Link>
+            </li>
+            {!user && (
+              <li>
+                <Link
+                  to="/login"
+                  className="hover:bg-green-500 hover:border-none active:bg-green-400 px-2 py-1 rounded transition duration-300 border"
+                >
+                  {translations[language].login}
+                </Link>
+              </li>
+            )}
+            <li>
+              {user && (
+                <button
+                  className="hover:bg-green-500 hover:border-none active:bg-green-400 px-2 py-1 rounded transition duration-300 bordertext-white"
+                  onClick={handleClick}
+                >
+                  Logout
+                </button>
+              )}
+            </li>
+            <li>
+              <button
+                onClick={toggleLanguage}
+                className="p-2 bg-gray-700 rounded text-white hover:bg-gray-600 transition duration-300"
+              >
+                {translations[language].language}
+              </button>
+            </li>
+            <li></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  );
+};
+
+Nav.propTypes = {
+  searchQuery: PropTypes.string.isRequired,
+  setSearchQuery: PropTypes.func.isRequired,
+};
+
+export default Nav;
+
+
+
+<FaShare
+              className="ml-[510px] text-amber-500 text-2xl hover:text-amber-200"
+              onClick={handleShare}
+            />
