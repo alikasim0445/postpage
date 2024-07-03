@@ -8,6 +8,7 @@ const commentRoute = require("./Route/commentRout.js");
 const forgotRoute = require("./Route/forgotRout.js");
 const cors = require("cors");
 const resetRoute = require("./Route/restRoute.js");
+const path = require("path");
 
 const app = express();
 
@@ -26,8 +27,13 @@ app.use("/api/comment", commentRoute);
 app.use("/api/forgot-password", forgotRoute);
 app.use("/api/reset-password", resetRoute);
 
+app.use(express.static(path.join(__dirname, "/app/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/app/build/index.html"));
+});
+
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to MongoDB");
     app.listen(process.env.PORT, () => {
