@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch("http://localhost:5555/api/user/login", {
+      const response = await fetch("http://localhost:8888/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password) => {
     try {
-      const response = await fetch("http://localhost:5555/api/user/register", {
+      const response = await fetch("http://localhost:8888/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -13,7 +13,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:5555/api/posts");
+        const response = await axios.get("http://localhost:8888/api/posts");
         setPosts(response.data);
         setLoading(false);
       } catch (error) {
@@ -25,7 +25,7 @@ const AdminPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5555/api/posts/${id}`, {
+      await axios.delete(`http://localhost:8888/api/posts/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setPosts(posts.filter((post) => post._id !== id));

@@ -14,7 +14,7 @@ export const CommentProvider = ({ children }) => {
     // Make API request to handle commenting on post
     try {
       const response = await fetch(
-        `http://localhost:5555/api/comment/${postId}/`,
+        `http://localhost:8888/api/comment/${postId}/`,
         {
           method: "POST",
           headers: {

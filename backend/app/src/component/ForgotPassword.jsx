@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     console.log("Form submitted with email:", email);
     try {
       const response = await fetch(
-        "http://localhost:5555/api/forgot-password",
+        "http://localhost:8888/api/forgot-password",
         {
           method: "POST",
           headers: {

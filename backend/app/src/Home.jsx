@@ -61,7 +61,7 @@ const Home = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5555/api/like/${postId}/`,
+        `http://localhost:8888/api/like/${postId}/`,
         {
           method: "POST",
           headers: {
@@ -90,7 +90,7 @@ const Home = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5555/api/comment/${postId}/`,
+        `http://localhost:8888/api/comment/${postId}/`,
         {
           method: "POST",
           headers: {

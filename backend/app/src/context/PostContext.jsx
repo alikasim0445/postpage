@@ -24,7 +24,7 @@ export const PostContextProvider = ({ children }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:5555/api/blogs");
+        const response = await fetch("http://localhost:8888/api/blogs");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -48,7 +48,7 @@ export const PostContextProvider = ({ children }) => {
     formdata.append("file", file);
     formdata.append("title", title);
     formdata.append("description", description);
-    await fetch("http://localhost:5555/api/blogs", {
+    await fetch("http://localhost:8888/api/blogs", {
       method: "POST",
       body: formdata,
     })
@@ -81,7 +81,7 @@ export const PostContextProvider = ({ children }) => {
     };
 
     try {
-      const response = await fetch(`http://localhost:5555/api/blogs/${id}`, {
+      const response = await fetch(`http://localhost:8888/api/blogs/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -105,7 +105,7 @@ export const PostContextProvider = ({ children }) => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5555/api/blogs/${id}`, {
+      const response = await fetch(`http://localhost:8888/api/blogs/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

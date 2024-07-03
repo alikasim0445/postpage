@@ -11,7 +11,7 @@ const ResetPassword = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5555/api/reset-password/${token}`,
+        `http://localhost:8888/api/reset-password/${token}`,
         {
           method: "POST",
           headers: {
