@@ -23,9 +23,9 @@ app.use("/api/comment", commentRoute);
 app.use("/api/forgot-password", forgotRoute);
 app.use("/api/reset-password", resetRoute);
 
-app.use(express.static(path.join(__dirname, "/app/build")));
+app.use(express.static(path.join(__dirname, "/app/dist")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/app/build/index.html"));
+  res.sendFile(path.join(__dirname, "/app/dist/index.html"));
 });
 
 mongoose
