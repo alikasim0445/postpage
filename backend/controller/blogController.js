@@ -37,7 +37,7 @@ const getBlog = async (req, res) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../app/images");
+    cb(null, "./app/images");
   },
   filename: (req, file, cb) => {
     cb(
